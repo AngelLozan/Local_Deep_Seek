@@ -1,0 +1,44 @@
+# version: '3.8'
+
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    restart: always
+    ports:
+      - "3000:8080"
+    volumes:
+      - open-webui:/app/backend/data
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: always
+    ports:
+      - "11434:11434"
+    healthcheck:
+      test: ollama --version || exit 1
+    command: serve
+    volumes:
+      - ollama:/root/.ollama
+volumes:
+  open-webui:
+  ollama:
+
+  # docker run -d -p 3000:8080 -v ollama:/root/.ollama -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:ollama
+
+# services:
+#   open-webui:
+#     image: ghcr.io/open-webui/open-webui:ollama
+#     container_name: open-webui
+#     restart: always
+#     ports:
+#       - "3000:8080"
+#     volumes:
+#       - ollama:/root/.ollama
+#       - open-webui:/app/backend/data
+
+# volumes:
+#   ollama:
+#   open-webui:
