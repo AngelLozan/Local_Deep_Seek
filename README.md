@@ -10,9 +10,12 @@ AND
 
 ![alt text](image-1.png)
 
-## Steps
+<hr/>
+
+## Steps to run with web interface
 
 1. Install [Ollama](https://martech.org/how-to-run-deepseek-locally-on-your-computer/)
+
 2.  Pick a model based on your hardware:
 ```
 ollama pull deepseek-r1:8b  # Fast, lightweight  
@@ -22,6 +25,8 @@ ollama pull deepseek-r1:14b # Balanced performance
 ollama pull deepseek-r1:32b # Heavy processing  
 
 ollama pull deepseek-r1:70b # Max reasoning, slowest
+
+ollama pull deepseek-coder:1.3b # Code completion assist
 ```
 3. Test the model locally via the terminal 
 ```
@@ -36,5 +41,23 @@ ollama run deepseek-r1:8b
 
 7. Open the docker app and run `docker-compose up -d`
 
-8. Visit `http://localhost:3000`
+8. Visit `http://localhost:3000` to see your chat. 
+
+<hr/>
+
+## Steps to run with VScode:
+
+1. Once you run steps 1-2 above, you can also install the CodeGPT for VScode extension. 
+![alt text](image-2.png)
+![alt text](image-3.png)
+
+2. Navigate to the Local LLMs section. This is likely accessed from the initial model selection drop down (pictured with claude selected).
+![alt text](image-9.png)
+![alt text](image-10.png)
+
+3. From the available options, select 'Ollama' as the local LLM provider.
+![alt text](image-11.png)
+
+4. Select your DeepSeek Model and you're done.
+![alt text](image-12.png)
 

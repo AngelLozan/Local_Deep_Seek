@@ -25,20 +25,3 @@ services:
 volumes:
   open-webui:
   ollama:
-
-  # docker run -d -p 3000:8080 -v ollama:/root/.ollama -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:ollama
-
-# services:
-#   open-webui:
-#     image: ghcr.io/open-webui/open-webui:ollama
-#     container_name: open-webui
-#     restart: always
-#     ports:
-#       - "3000:8080"
-#     volumes:
-#       - ollama:/root/.ollama
-#       - open-webui:/app/backend/data
-
-# volumes:
-#   ollama:
-#   open-webui:
