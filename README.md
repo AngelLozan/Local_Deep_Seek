@@ -4,7 +4,11 @@ Running DeepSeek locally with Docker-Compose is possible with a Mac, though a li
 
 This will take you through how to run DeepSeek on localhost with a web-ui interface. 
 
-![alt text](image.png)
+![alt text](image.png) 
+
+AND 
+
+![alt text](image-1.png)
 
 ## Steps
 
