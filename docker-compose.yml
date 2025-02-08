@@ -1,14 +1,23 @@
-# version: '3.8'
-
 services:
   open-webui:
-    image: ghcr.io/open-webui/open-webui:main
+    # image: ghcr.io/open-webui/open-webui:main
+    build:
+      context: ./openwebui
+      dockerfile: Dockerfile
     container_name: open-webui
     restart: always
     ports:
       - "3000:8080"
     volumes:
-      - open-webui:/app/backend/data
+      - ~/.open-webui:/root/.open-webui
+      # - open-webui:/app/backend/data
+    networks:
+      - internal-network
+      # - host-network
+    environment:
+      # HF_HUB_OFFLINE: "0"
+      # OFFLINE_MODE: "true"
+      DATA_DIR: "/root/.open-webui"
     extra_hosts:
       - "host.docker.internal:host-gateway"
   ollama:
@@ -22,6 +31,16 @@ services:
     command: serve
     volumes:
       - ollama:/root/.ollama
+    networks:
+      - internal-network
 volumes:
   open-webui:
   ollama:
+
+networks:
+  internal-network:
+    driver: bridge
+    internal: true
+  # host-network:
+  #   driver: bridge
+  #   internal: true
