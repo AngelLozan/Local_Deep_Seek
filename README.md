@@ -61,3 +61,6 @@ ollama run deepseek-r1:8b
 4. Select your DeepSeek Model and you're done.
 ![alt text](image-12.png)
 
+<hr/>
+
+## Coming soon: Running Open-webui without locally without internet.
