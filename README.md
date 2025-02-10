@@ -47,7 +47,7 @@ ollama run deepseek-r1:8b
 
 ## Steps to run with VScode:
 
-1. Once you run steps 1-2 above, you can also install the CodeGPT for VScode extension. 
+1. Follow steps 1-2 in the [Steps to run with a web interface](#steps-to-run-with-web-interface), then you can also install the CodeGPT for VScode extension. 
 ![alt text](image-2.png)
 ![alt text](image-3.png)
 
@@ -63,4 +63,21 @@ ollama run deepseek-r1:8b
 
 <hr/>
 
-## Coming soon: Running Open-webui without locally without internet.
+## Running Open-webui without locally without internet.
+
+1. Follow steps 1-2 in the [Steps to run with a web interface](#steps-to-run-with-web-interface)
+
+2. Install `uv` `curl -LsSf https://astral.sh/uv/install.sh | sh`
+
+3. Create uv env:  `mkdir ~/Documents/openwebui && uv venv --python 3.11`
+
+4. Install open-webui: `cd ~/<your path>/openwebui && uv pip install open-webui`
+
+5. Start open-webui: `DATA_DIR=~/.open-webui uv run open-webui serve`
+
+6. Visit localhost and start chatting!
+
+
+## Running locally via docker without internet with Open-webui
+
+ TBD..

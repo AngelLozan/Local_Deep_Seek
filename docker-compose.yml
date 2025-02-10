@@ -10,13 +10,13 @@ services:
       - "3000:8080"
     volumes:
       - ~/.open-webui:/root/.open-webui
-      # - open-webui:/app/backend/data
+      - ~/.cache/huggingface:/root/.cache/huggingface 
+      # - open-webui:/app/data
     networks:
       - internal-network
-      # - host-network
     environment:
-      # HF_HUB_OFFLINE: "0"
-      # OFFLINE_MODE: "true"
+      HF_HUB_OFFLINE: "1"
+      OFFLINE_MODE: "true"
       DATA_DIR: "/root/.open-webui"
     extra_hosts:
       - "host.docker.internal:host-gateway"
@@ -41,6 +41,3 @@ networks:
   internal-network:
     driver: bridge
     internal: true
-  # host-network:
-  #   driver: bridge
-  #   internal: true
