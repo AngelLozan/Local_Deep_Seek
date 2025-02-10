@@ -11,13 +11,15 @@ services:
     volumes:
       - ~/.open-webui:/root/.open-webui
       - ~/.cache/huggingface:/root/.cache/huggingface 
-      # - open-webui:/app/data
+      - ~/.cache/huggingface/hub:/root/.cache/huggingface/hub
+      - open-webui:/app/backend/data
     networks:
       - internal-network
     environment:
       HF_HUB_OFFLINE: "1"
       OFFLINE_MODE: "true"
       DATA_DIR: "/root/.open-webui"
+      HF_HOME: "/root/.cache/huggingface"
     extra_hosts:
       - "host.docker.internal:host-gateway"
   ollama:
