@@ -13,9 +13,12 @@ services:
       - ~/.cache/huggingface:/root/.cache/huggingface 
       - ~/.cache/huggingface/hub:/root/.cache/huggingface/hub
       - open-webui:/app/backend/data
+      - ~/.ollama/models:/root/.ollama/models
+      - ollama:/root/.ollama
     networks:
-      - internal-network
+      - model-hub # when inspecting, will be deepseek_model-hub
     environment:
+      OLLAMA_API_BASE_URL: "http://ollama:11434"
       HF_HUB_OFFLINE: "1"
       OFFLINE_MODE: "true"
       DATA_DIR: "/root/.open-webui"
@@ -34,12 +37,12 @@ services:
     volumes:
       - ollama:/root/.ollama
     networks:
-      - internal-network
+      - model-hub # when inspecting, will be deepseek_model-hub
 volumes:
   open-webui:
   ollama:
 
 networks:
-  internal-network:
+  model-hub: # when inspecting, will be deepseek_model-hub
     driver: bridge
-    internal: true
+

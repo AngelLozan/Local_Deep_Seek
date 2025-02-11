@@ -1,3 +1,4 @@
 .vscode/
 .DS_Store
-openwebui/
+.webui_secret_key
+requirements.txt
